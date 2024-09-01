@@ -20,9 +20,9 @@ const authors = [
 	{ name: 'Anna', age: 32 },
 ];
 
-const groupedAuthors = Object.groupBy(authors, function ({ age }) {
+const groupedAuthors = Map.groupBy(authors, function ({ age }) {
 	return age < 25 ? 'qualified' : 'not qualified';
 });
 
 const cardAuthorNameEl = cardEl.querySelector('.card__author-desc a');
-cardAuthorNameEl.textContent = groupedAuthors.qualified[0].name;
+cardAuthorNameEl.textContent = groupedAuthors.get('qualified')[0].name;
